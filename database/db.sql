@@ -1,4 +1,4 @@
-CREATE DATABASE centro_convenciones IF NO EXISTS;
+CREATE DATABASE centro_convenciones;
 
 use centro_convenciones;
 

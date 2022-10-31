@@ -2,20 +2,30 @@ import Navbar_register from "../components/Navbar_register";
 import logo from "../public/logo.png";
 import Footer_register from "../components/Footer_register";
 import axios from "axios";
+import { userAgent } from "next/server";
+import { useState } from "react";
 
 const Registrar = () => {
+
+  const [user, setUser] = useState({
+    nombre_usuario: "",
+    correo_usuario: "",
+    tipo_identificacion: "",
+    numero_identificacion: 0,
+    telefono_usuario: "",
+    contraseña_usuario: "",
+  })
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const res = await axios.post("/api/usuarios", {
-      nombre_usuario: "yuliam andrey osorio",
-      correo_usuario: "yuliamwow@gmail.com",
-      tipo_identificacion: "CC",
-      numero_identificacion: 1091884362,
-      telefono_usuario: "3218604426",
-      contraseña_usuario: "12345",
-    });
+    const res = await axios.post("/api/usuarios", user);
     console.log(res);
   };
+
+  
+  const handleChange = ({target: {name, value}}) => setUser({...user, [name]: value});
+  
+  
 
   return (
     <>
@@ -33,36 +43,42 @@ const Registrar = () => {
               type="text"
               className="w-56 h-10 border-solid border-2 border-black rounded-md placeholder:italic placeholder:text-slate-400"
               placeholder="Ingrese su nombre completo"
+              onChange={handleChange}
             />
             <input
               name="correo_usuario"
-              type="text"
+              type="email"
               className="w-56 h-10 mt-4 border-solid border-2 border-black rounded-md placeholder:italic placeholder:text-slate-400"
               placeholder="Ingrese su correo electronico"
+              onChange={handleChange}
             />
             <input
-              name="tipo_documento"
+              name="tipo_identificacion"
               type="text"
               className="w-56 h-10 mb-4 mt-4 border-solid border-2 border-black rounded-md placeholder:italic placeholder:text-slate-400"
               placeholder="Tipo de documento"
+              onChange={handleChange}
             />
             <input
-              name="numero_documento"
+              name="numero_identificacion"
               type="text"
               className="w-56 h-10 mb-4  border-solid border-2 border-black rounded-md placeholder:italic placeholder:text-slate-400"
               placeholder="Ingrese el numero de documento"
+              onChange={handleChange}
             />
             <input
               name="telefono_usuario"
               type="text"
               className="w-56 mb-4  h-10 border-solid border-2 border-black rounded-md placeholder:italic placeholder:text-slate-400"
               placeholder="Ingrese su telefono"
+              onChange={handleChange}
             />
             <input
-              name="contraseña"
-              type="text"
+              name="contraseña_usuario"
+              type="password"
               className="w-56 mb-4 h-10 border-solid border-2 border-black rounded-md placeholder:italic placeholder:text-slate-400"
               placeholder="Ingrese su contraseña"
+              onChange={handleChange}
             />
 
             <div className="botones mb-28 ">
