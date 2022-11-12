@@ -1,16 +1,13 @@
-import imagen1 from "../assets/imagen1.jpg";
-import imagen2 from "../assets/imagen2.png";
-import imagen3 from "../assets/salon-barranquero.jpg";
-
 const BodyHome = () => {
   return (
     <div>
       <div className=" block">
-        <img src={imagen1} alt="imagen" className="w-full h-96" />
+        <img src="/imagen1.jpg" alt="" />
       </div>
       <hr />
       <div className=" block border-b-black mb-20 mt-20">
-        <img src={imagen2} alt="imagen2" className="text-center " />
+        <img src="/imagen2.png" alt="" />
+
         <p className=" italic">
           Desde hace 8 años hemos tenido la oportunidad de realizar eventos de
           gran formato en las instalaciones del Centro Cultural Metropolitano de
@@ -27,7 +24,7 @@ const BodyHome = () => {
           Éste salón principal es ideal para realizar conciertos, ferias, shows
           de humor, conferencias, grados.
         </p>
-        <img src={imagen3} alt="imagen3" />
+        <img src="/salon-barranquero.jpg" alt="" />
       </div>
     </div>
   );
