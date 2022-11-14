@@ -27,72 +27,106 @@ const Registrar = () => {
   return (
     <>
       <Navbar_register />
-      <div className="image_header mb-10 w-36 mx-auto mt-4">
+      <div className="image_header mb-3 w-36 mx-auto mt-4">
         <img src="/logo.png" alt="" />
       </div>
-      <div className="">
-        <div className="image_header mb-6 mt-4 w-36 mx-auto">
-          <img src={logo} alt="" />
-        </div>
-        <div className="form  w-100 shadow-2xl h-px">
-          <form
-            onSubmit={handleSubmit}
-            className="flex flex-col justify-center items-center">
-            <input
-              name="nombre_usuario"
-              type="text"
-              className="w-64 h-10 border-solid border-2 border-black rounded-md placeholder:italic placeholder:text-slate-400"
-              placeholder="Ingrese su nombre completo"
-              onChange={handleChange}
-            />
-            <input
-              name="email_user"
-              type="email"
-              className="w-64 h-10 mt-4 border-solid border-2 border-black rounded-md placeholder:italic placeholder:text-slate-400"
-              placeholder="Ingrese su correo electronico"
-              onChange={handleChange}
-            />
-            <input
-              name="tipo_identificacion"
-              type="text"
-              className="w-64 h-10 mb-4 mt-4 border-solid border-2 border-black rounded-md placeholder:italic placeholder:text-slate-400"
-              placeholder="Tipo de documento"
-              onChange={handleChange}
-            />
-            <input
-              name="numero_identificacion"
-              type="text"
-              className="w-64 h-10 mb-4  border-solid border-2 border-black rounded-md placeholder:italic placeholder:text-slate-400"
-              placeholder="Ingrese el numero de documento"
-              onChange={handleChange}
-            />
-            <input
-              name="telefono_usuario"
-              type="text"
-              className="w-64 mb-4  h-10 border-solid border-2 border-black rounded-md placeholder:italic placeholder:text-slate-400"
-              placeholder="Ingrese su telefono"
-              onChange={handleChange}
-            />
-            <input
-              name="contraseña_usuario"
-              type="password"
-              className="w-64 mb-4 h-10 border-solid border-2 border-black rounded-md placeholder:italic placeholder:text-slate-400"
-              placeholder="Ingrese su contraseña"
-              onChange={handleChange}
-            />
+      <div className="image_header mb-0 mt-2 w-36 mx-auto">
+        <img src={logo} alt="" />
+      </div>
+      <div className="form  w-100 shadow-2xl h-px">
+        <form
+          onSubmit={handleSubmit}
+          className="flex flex-col justify-center items-center mx-auto">
+          <label
+            htmlFor="nombre_usuario"
+            className="text-right m-0 text-white text-lg">
+            Nombre de usuario:
+          </label>
+          <input
+            name="nombre_usuario"
+            type="text"
+            id="nombre_usuario"
+            className="w-64 h-10 mb-4 border-solid border-2 border-black rounded-md placeholder:italic placeholder:text-slate-400"
+            placeholder="Ingrese su nombre completo"
+            onChange={handleChange}
+          />
+          <label
+            htmlFor="email_user"
+            className="text-right m-0 text-white text-lg">
+            Correo electronico:
+          </label>
+          <input
+            name="email_user"
+            type="email"
+            id="email_user"
+            className="w-64 h-10 mb-4 border-solid border-2 border-black rounded-md placeholder:italic placeholder:text-slate-400"
+            placeholder="Ingrese su correo electronico"
+            onChange={handleChange}
+          />
+          <label
+            htmlFor="tipo_identificacion"
+            className="text-right m-0 text-white text-lg">
+            Tipo de identificación:
+          </label>
+          <input
+            name="tipo_identificacion"
+            type="text"
+            id="tipo_identificacion"
+            className="w-64 h-10 mb-4  border-solid border-2 border-black rounded-md placeholder:italic placeholder:text-slate-400"
+            placeholder="Tipo de documento"
+            onChange={handleChange}
+          />
+          <label
+            htmlFor="numero_identificacion"
+            className="text-right m-0 text-white text-lg">
+            Numero de identificación:
+          </label>
+          <input
+            name="numero_identificacion"
+            type="text"
+            id="numero_identificacion"
+            className="w-64 h-10 mb-4  border-solid border-2 border-black rounded-md placeholder:italic placeholder:text-slate-400"
+            placeholder="Ingrese el numero de documento"
+            onChange={handleChange}
+          />
+          <label
+            htmlFor="telefono_usuario"
+            className="text-right m-0 text-white text-lg">
+            Numero telefonico:
+          </label>
+          <input
+            name="telefono_usuario"
+            type="text"
+            id="telefono_usuario"
+            className="w-64 mb-4  h-10 border-solid border-2 border-black rounded-md placeholder:italic placeholder:text-slate-400"
+            placeholder="Ingrese su telefono"
+            onChange={handleChange}
+          />
+          <label
+            htmlFor="password"
+            className="text-right m-0 text-white text-lg">
+            Contraseña:
+          </label>
+          <input
+            name="contraseña_usuario"
+            type="password"
+            id="password"
+            className="w-64 mb-2 h-10 border-solid border-2 border-black rounded-md placeholder:italic placeholder:text-slate-400"
+            placeholder="Ingrese su contraseña"
+            onChange={handleChange}
+          />
 
-            <div className="botones mb-28 ">
-              <button
-                type="submit"
-                className="bg-sky-900 hover:bg-sky-800 text-teal-200 p-2 rounded-lg w-24 mt-4 ">
-                Enviar
-              </button>
-              <button className="bg-sky-900 hover:bg-sky-800 text-teal-200 p-2 rounded-lg w-24 mt-4 ">
-                <a href="/Home">Volver</a>
-              </button>
-            </div>
-          </form>
-        </div>
+          <div className="botones mb-28 ">
+            <button
+              type="submit"
+              className="bg-sky-900 hover:bg-sky-800 text-teal-200 p-2 rounded-lg w-24 mt-4 ">
+              Enviar
+            </button>
+            <button className="bg-sky-900 hover:bg-sky-800 text-teal-200 p-2 rounded-lg w-24 mt-4 ">
+              <a href="/Home">Volver</a>
+            </button>
+          </div>
+        </form>
       </div>
 
       <Footer_register />

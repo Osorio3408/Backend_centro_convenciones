@@ -48,31 +48,38 @@ export default function Login() {
                 onSubmit={handleSubmit}
                 className="flex justify-center items-center  mx-auto ">
                 <div className="flex flex-col mx-auto">
+                  <label htmlFor="uname" className="text-white text-lg">
+                    Correo electronico:
+                  </label>
                   <input
                     type="text"
-                    placeholder="Enter you email..."
+                    placeholder="Ingresa correo..."
                     name="uname"
+                    id="uname"
                     required
                     onChange={email_userHandler}
                     className="w-80 h-10 text-center border-solid border-2 mb-16 border-black rounded-md placeholder:italic placeholder:text-slate-400"
                   />
-
+                  <label htmlFor="psw" className="text-white text-lg">
+                    Contraseña:
+                  </label>
                   <input
                     type="password"
-                    placeholder="Enter your password"
+                    placeholder="Ingresa contraseña..."
                     name="psw"
+                    id="psw"
                     required
                     onChange={passwordHandler}
-                    className="w-80 h-10 text-center mb-10 mt-4 border-solid border-2 border-black rounded-md placeholder:italic placeholder:text-slate-400"
+                    className="w-80 h-10 text-center mb-10 mt-0 border-solid border-2 border-black rounded-md placeholder:italic placeholder:text-slate-400"
                   />
 
-                  <div className="mx-auto">
+                  <div className="flex mx-auto gap-x-5">
                     <button
                       type="submit"
-                      className="bg-sky-900 hover:bg-sky-800 text-teal-200 p-2 rounded-lg w-24 mt-4 ">
+                      className="border-solid border-2 border-white bg-sky-900 hover:bg-sky-800 hover:border-dotted text-teal-200 p-2 rounded-lg w-24 mt-4 ">
                       Enviar
                     </button>
-                    <button className="bg-sky-900 hover:bg-sky-800  text-teal-200 p-2 rounded-lg w-24 mt-4 ">
+                    <button className="border-solid border-2 border-white bg-sky-900 hover:bg-sky-800 hover:border-dotted text-teal-200 p-2 rounded-lg w-24 mt-4 ">
                       <a href="./Home">Volver</a>
                     </button>
                   </div>
