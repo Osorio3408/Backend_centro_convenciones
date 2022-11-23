@@ -9,6 +9,7 @@ export default async function handler(req, res) {
       return res.status(200).json("Recibiendo usuarios");
 
     case "POST":
+    try {
       const {
         nombre_usuario,
         email_user,
@@ -32,8 +33,17 @@ export default async function handler(req, res) {
 
       console.log(result);
 
-      return res.status(200).json("Creando usuario");
+      return res.json({
+        message:"Usuario creado con exito!"
+      });
 
+    } catch (error) {
+      return res.json({
+        message:"El correo digitado ya esta usado, porfavor ingresa uno nuevo!",
+        status: 404,
+        error
+      });
+    }
     default:
       break;
   }

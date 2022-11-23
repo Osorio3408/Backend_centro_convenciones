@@ -17,7 +17,20 @@ const Registrar = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const res = await axios.post("/api/usuarios", user);
+    const res = await axios.post("/api/usuarios", user)
+    
+    //ESTO ES UNA ALERTA PARA DECIRLE QUE YA HAY UN CORREO
+    alert(res.data.message);
+
+
+    // .then(res => {
+    //   console.log("exito");
+    //   console.log(res);
+    // }).catch(error => {
+    //   console.log("error");
+    //   console.log(error);
+    // })
+    
     console.log(res);
   };
 
@@ -27,7 +40,7 @@ const Registrar = () => {
   return (
     <>
       <Navbar_register />
-      <div className="image_header mb-3 w-36 mx-auto mt-4">
+      <div className="image_header mb-3 w-28 mx-auto mt-4">
         <img src="/logo.png" alt="" />
       </div>
       <div className="image_header mb-0 mt-2 w-36 mx-auto">
@@ -116,13 +129,13 @@ const Registrar = () => {
             onChange={handleChange}
           />
 
-          <div className="botones mb-28 ">
+          <div className="flex mx-auto gap-x-8 mb-28">
             <button
               type="submit"
-              className="bg-sky-900 hover:bg-sky-800 text-teal-200 p-2 rounded-lg w-24 mt-4 ">
+              className="border-solid border-2 border-white bg-sky-900 hover:bg-sky-800 hover:border-dotted  text-teal-200 p-2 rounded-lg w-24 mt-4 ">
               Enviar
             </button>
-            <button className="bg-sky-900 hover:bg-sky-800 text-teal-200 p-2 rounded-lg w-24 mt-4 ">
+            <button className="border-solid border-2 border-white bg-sky-900 hover:bg-sky-800 hover:border-dotted  text-teal-200 p-2 rounded-lg w-24 mt-4 ">
               <a href="/Home">Volver</a>
             </button>
           </div>
