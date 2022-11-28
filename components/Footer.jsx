@@ -6,20 +6,18 @@ const Footer = () => {
       <footer className="p-4 bg-white sm:p-6 dark:bg-gray-900">
         <div className=" md:flex md:justify-between">
           <div className="flex text-center justify-center items-center  mb-6 md:mb-0 ">
-            <a href="" className="flex items-center">
-              <img src="/logo.png" alt="" className="mr-3 h-8" />
-
-              <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
-                Centro de Conveciones
-              </span>
-            </a>
+            <img src="/logo.png" alt="" className="mr-3 h-8 xl:w-20 xl:h-20" />
+            <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white xl:text-3xl">
+              Centro de Conveciones
+            </span>
+            -
           </div>
           <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
             <div>
-              <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
-                Resources
+              <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white xl:text-base">
+                Recursos
               </h2>
-              <ul className="text-gray-600 dark:text-gray-400">
+              <ul className="text-gray-600 dark:text-gray-400 xl:text-base">
                 <li className="mb-4">
                   <a href="" className="hover:underline">
                     Flowbite
@@ -33,10 +31,10 @@ const Footer = () => {
               </ul>
             </div>
             <div>
-              <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
-                Follow us
+              <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white xl:text-base">
+                Siguenos!
               </h2>
-              <ul className="text-gray-600 dark:text-gray-400">
+              <ul className="text-gray-600 dark:text-gray-400 xl:text-base">
                 <li className="mb-4">
                   <a
                     href="https://github.com/Osorio3408"
@@ -52,18 +50,18 @@ const Footer = () => {
               </ul>
             </div>
             <div>
-              <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
-                Legal
+              <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white xl:text-base">
+                Legalidad
               </h2>
-              <ul className="text-gray-600 dark:text-gray-400">
+              <ul className="text-gray-600 dark:text-gray-400 xl:text-base">
                 <li className="mb-4">
                   <a href="#" className="hover:underline">
-                    Privacy Policy
+                    Políticas de seguridad
                   </a>
                 </li>
                 <li>
                   <a href="#" className="hover:underline">
-                    Terms &amp; Conditions
+                    Terminos &amp; Condiciones
                   </a>
                 </li>
               </ul>
@@ -72,8 +70,8 @@ const Footer = () => {
         </div>
         <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
         <div className="sm:flex text-center sm:items-center sm:justify-between ">
-          <span className="text-sm text-center items-center justify-center text-gray-500 sm:text-center dark:text-gray-400">
-            &copy; 2022 . All Rights Reserved.
+          <span className="text-sm text-center items-center justify-center text-gray-500 sm:text-center dark:text-gray-400 xl:text-base">
+            &copy; 2022 . Todos los derechos reservados.
           </span>
           <div className="flex text-center items-center justify-center mt-4 space-x-6 sm:justify-center sm:mt-0">
             <a
@@ -119,7 +117,7 @@ const Footer = () => {
               <span className="sr-only">Twitter page</span>
             </a>
             <a
-              href="#"
+              href="https://github.com/Osorio3408"
               className="text-gray-500 hover:text-gray-900 dark:hover:text-white">
               <svg
                 className="w-5 h-5"
@@ -133,6 +131,7 @@ const Footer = () => {
               </svg>
               <span className="sr-only">GitHub account</span>
             </a>
+
             <a
               href="#"
               className="text-gray-500 hover:text-gray-900 dark:hover:text-white">

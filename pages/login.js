@@ -43,10 +43,10 @@ export default function Login() {
             <Image src="/logo.png" width="100" height="100" />
           </div>
           {!user.isLoggedIn && (
-            <div className="form w-100 shadow-2xl h-px">
+            <div className="form w-100 shadow-2xl h-px ">
               <form
                 onSubmit={handleSubmit}
-                className="flex justify-center items-center  mx-auto ">
+                className="flex justify-center items-center  mx-auto xl:w-1/4 bg-glass xl:h-96">
                 <div className="flex flex-col mx-auto">
                   <label htmlFor="uname" className="text-white text-lg">
                     Correo electronico:
@@ -80,7 +80,7 @@ export default function Login() {
                       Enviar
                     </button>
                     <button className="border-solid border-2 border-white bg-sky-900 hover:bg-sky-800 hover:border-dotted text-teal-200 p-2 rounded-lg w-24 mt-4 ">
-                      <a href="./Home">Volver</a>
+                      <a href="./home">Volver</a>
                     </button>
                   </div>
                 </div>
