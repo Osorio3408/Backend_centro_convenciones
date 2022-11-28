@@ -5,6 +5,8 @@ import axios from "axios";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import { toast } from "react-toastify";
+import Image from "next/image";
+import Link from "next/link";
 
 const Registrar = () => {
   const router = useRouter();
@@ -39,11 +41,9 @@ const Registrar = () => {
       <Navbar_register />
       <div className="xl:flex flex-col xl:m-auto bg-glass xl:w-96 xl:mb-36 xl:mt-10">
         <div className="image_header mb-3 w-28 mx-auto mt-4 bg-white rounded-full">
-          <img src="/new_user.png" alt="" />
+          <Image src="/new_user.png" alt="user" width="200" height="100"/>
         </div>
-        <div className="image_header mb-0 mt-2 w-36 mx-auto">
-          <img src={logo} alt="" />
-        </div>
+
         <div className="form  w-100">
           <form
             onSubmit={handleSubmit}
@@ -137,9 +137,9 @@ const Registrar = () => {
                 Enviar
               </button>
               <span className="text-center border-solid border-2 border-white bg-sky-900 hover:bg-sky-800 hover:border-dotted  text-teal-200 p-2 rounded-lg w-24 mt-4 ">
-                <a href="/home" className="w-full p-4">
+                <Link href="/home" className="w-full p-4">
                   Volver
-                </a>
+                </Link>
               </span>
             </div>
           </form>

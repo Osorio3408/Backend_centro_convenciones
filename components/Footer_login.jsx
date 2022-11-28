@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 const Footer_login = () => {
@@ -9,11 +10,11 @@ const Footer_login = () => {
         </span>
         <ul className="flex flex-wrap items-center mt-3 justify-center text-sm text-gray-500 dark:text-teal-100 sm:mt-0">
           <li>
-            <a
+            <Link
               href="/register"
               className="mr-4 hover:underline md:mr-6 xl:text-xl ">
               ¿No tienes cuenta?
-            </a>
+            </Link>
           </li>
         </ul>
       </footer>

@@ -40,7 +40,7 @@ export default function Login() {
         <>
           <Navbar_login />
           <div className="image_header mb-16 w-36 mx-auto mt-4">
-            <Image src="/logo.png" width="100" height="100" />
+            <Image src="/logo.png" width="100" height="100" alt="Logo"/>
           </div>
           {!user.isLoggedIn && (
             <div className="form w-100 shadow-2xl h-px ">

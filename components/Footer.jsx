@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 
 const Footer = () => {
@@ -6,7 +7,8 @@ const Footer = () => {
       <footer className="p-4 bg-white sm:p-6 dark:bg-gray-900">
         <div className=" md:flex md:justify-between">
           <div className="flex text-center justify-center items-center  mb-6 md:mb-0 ">
-            <img src="/logo.png" alt="" className="mr-3 h-8 xl:w-20 xl:h-20" />
+            
+            <Image src="/logo.png" alt="" className="mr-3 h-8 xl:w-20 xl:h-20" width="200" height="100"/>
             <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white xl:text-3xl">
               Centro de Conveciones
             </span>

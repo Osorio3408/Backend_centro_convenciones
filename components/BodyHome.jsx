@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 const BodyHome = () => {
   return (
     <div className="bg-sky-800 text-slate-200">
@@ -6,7 +8,7 @@ const BodyHome = () => {
       </div>
       <hr />
       <div className=" block border-b-black mb-20 mt-20">
-        <img src="/imagen2.png" alt="" />
+        <Image src="/imagen2.png" alt="salon" width="1000" height="100"/>
 
         <p className="italic p-2 xl:text-3xl">
           Desde hace 8 años hemos tenido la oportunidad de realizar eventos de
@@ -24,7 +26,8 @@ const BodyHome = () => {
           Éste salón principal es ideal para realizar conciertos, ferias, shows
           de humor, conferencias, grados.
         </p>
-        <img src="/salon-barranquero.jpg" alt="" />
+      
+        <Image src="/salon-barranquero.jpg" alt="salon-barranquero" width="1000" height="100"/>
       </div>
     </div>
   );
