@@ -4,6 +4,7 @@ import Footer_register from "../components/Footer_register";
 import axios from "axios";
 import { useState } from "react";
 import { useRouter } from "next/router";
+import { toast } from "react-toastify";
 
 const Registrar = () => {
   const router = useRouter();
@@ -19,18 +20,15 @@ const Registrar = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const res = await axios.post("/api/usuarios", user);
-
-    if (res.data.status == "404") {
-      //ESTO ES UNA ALERTA PARA DECIRLE QUE YA HAY UN CORREO
-      alert(res.data.message);
-    } else {
-      //ESTO ES UNA ALERTA PARA DECIRLE QUE SE CREO EL USUARIO CORRECTAMENTE
-      alert(res.data.message);
+    try {
+      await axios.post("/api/usuarios", user);
+      toast.success("Usuario Creado Exitosamente");
       router.push("/home");
+    } catch (error) {
+      toast.error(
+        "Error, este correo ya está registrado, por favor ingrese uno nuevo!"
+      );
     }
-
-    console.log(res);
   };
 
   const handleChange = ({ target: { name, value } }) =>

@@ -54,7 +54,7 @@ export const getServerSideProps = withSession(async function ({ req, res }) {
   const user = req.session.get("user");
 
   if (user === undefined) {
-    res.setHeader("location", "/Home");
+    res.setHeader("location", "/home");
     res.statusCode = 302;
     res.end();
     return { props: {} };
