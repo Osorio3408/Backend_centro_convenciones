@@ -43,7 +43,6 @@ export default function Home({ user }) {
           </div>
         )}
       </div>
-      {/* <h2>Welcome to the home page {user.email_user}!</h2> */}
 
       <Footer />
     </>
