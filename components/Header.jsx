@@ -41,10 +41,12 @@ const Header = () => {
                 open ? "top-20  " : "top-[-490px]"
               }`}>
               {Links.map((link) => (
-                <li key={link.name} Name="md:ml-8 text-xl md:my-0 my-7">
+                <li
+                  key={link.name}
+                  className="mb-5 mt-5 md:ml-8 text-xl md:my-0 my-7">
                   <a
                     href={link.href}
-                    className="text-white hover:text-lime-400 duration-500 md:text-2xl">
+                    className="text-white underline hover:text-lime-400 duration-500 md:text-2xl">
                     {link.name}
                   </a>
                 </li>

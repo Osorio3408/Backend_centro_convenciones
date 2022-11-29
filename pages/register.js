@@ -1,5 +1,4 @@
 import Navbar_register from "../components/Navbar_register";
-import logo from "../public/logo.png";
 import Footer_register from "../components/Footer_register";
 import axios from "axios";
 import { useState } from "react";
@@ -41,7 +40,7 @@ const Registrar = () => {
       <Navbar_register />
       <div className="xl:flex flex-col xl:m-auto bg-glass xl:w-96 xl:mb-36 xl:mt-10">
         <div className="image_header mb-3 w-28 mx-auto mt-4 bg-white rounded-full">
-          <Image src="/new_user.png" alt="user" width="200" height="100"/>
+          <Image src="/new_user.png" alt="user" width="200" height="100" />
         </div>
 
         <div className="form  w-100">
@@ -137,7 +136,7 @@ const Registrar = () => {
                 Enviar
               </button>
               <span className="text-center border-solid border-2 border-white bg-sky-900 hover:bg-sky-800 hover:border-dotted  text-teal-200 p-2 rounded-lg w-24 mt-4 ">
-                <Link href="/home" className="w-full p-4">
+                <Link href="/home" className="w-full p-4 text-teal-200">
                   Volver
                 </Link>
               </span>

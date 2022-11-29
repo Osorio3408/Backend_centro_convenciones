@@ -4,6 +4,9 @@ import useUser from "../lib/useUser";
 import Image from "next/image";
 import Navbar_login from "../components/Navbar_login";
 import Footer_login from "../components/Footer_login";
+import Loading from "../components/Loading";
+import "semantic-ui-css/semantic.min.css";
+import Link from "next/link";
 
 const userService = userServiceFactory();
 
@@ -35,12 +38,12 @@ export default function Login() {
   return (
     <>
       {!user ? (
-        <h1>Loading....</h1>
+        <Loading />
       ) : (
         <>
           <Navbar_login />
-          <div className="image_header mb-16 w-36 mx-auto mt-4">
-            <Image src="/logo.png" width="100" height="100" alt="Logo"/>
+          <div className="image_header mb-16 w-28 mx-auto mt-4">
+            <Image src="/logo.png" width="100" height="200" alt="Logo" />
           </div>
           {!user.isLoggedIn && (
             <div className="form w-100 shadow-2xl h-px ">
@@ -76,11 +79,13 @@ export default function Login() {
                   <div className="flex mx-auto gap-x-5">
                     <button
                       type="submit"
-                      className="border-solid border-2 border-white bg-sky-900 hover:bg-sky-800 hover:border-dotted text-teal-200 p-2 rounded-lg w-24 mt-4 ">
+                      className="text-teal-200  border-solid border-2 border-white bg-sky-900 hover:bg-sky-800 hover:border-dotted p-2 rounded-lg w-24 mt-4 ">
                       Enviar
                     </button>
-                    <button className="border-solid border-2 border-white bg-sky-900 hover:bg-sky-800 hover:border-dotted text-teal-200 p-2 rounded-lg w-24 mt-4 ">
-                      <a href="./home">Volver</a>
+                    <button className="border-solid border-2 border-white bg-sky-900 hover:bg-sky-800 hover:border-dotted p-2 rounded-lg w-24 mt-4 ">
+                      <Link href="./home" className="text-teal-200 ">
+                        Volver
+                      </Link>
                     </button>
                   </div>
                 </div>

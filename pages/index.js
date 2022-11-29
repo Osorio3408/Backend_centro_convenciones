@@ -1,9 +1,11 @@
+import "semantic-ui-css/semantic.min.css";
 import Navbar_Events from "../components/Navbar_Events";
 import Footer from "../components/Footer";
 import withSession from "../lib/session";
 import { useEffect, useState } from "react";
 import ImageSearch from "../components/ImageSearch";
 import ImageCard from "../components/ImageCard";
+import Loading from "../components/Loading";
 
 export default function Home({ user }) {
   console.log(user);
@@ -11,11 +13,10 @@ export default function Home({ user }) {
   const [images, setImages] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [term, setTerm] = useState("");
+  const URL = `https://pixabay.com/api/?key=31134368-cbf7aafd582ab6e1e41ca089a&q=${term}&image_type=photo&pretty=true`;
 
   useEffect(() => {
-    fetch(
-      `https://pixabay.com/api/?key=31134368-cbf7aafd582ab6e1e41ca089a&q=${term}&image_type=photo&pretty=true`
-    )
+    fetch(URL)
       .then((res) => res.json())
       .then((data) => {
         setImages(data.hits);
@@ -34,7 +35,7 @@ export default function Home({ user }) {
           </h1>
         )}
         {isLoading ? (
-          <h1 className="text-6xl text-center mx-auto mt-32">Loading...</h1>
+          <Loading />
         ) : (
           <div className="grid justify-center items-center gap-4 md:grid-cols-2 md:ml-20 xl:grid-cols-4 xl:ml-0">
             {images.map((image) => (
@@ -43,7 +44,6 @@ export default function Home({ user }) {
           </div>
         )}
       </div>
-
       <Footer />
     </>
   );
