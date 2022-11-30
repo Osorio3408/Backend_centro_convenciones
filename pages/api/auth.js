@@ -6,7 +6,7 @@ const dbService = databaseServiceFactory();
 const authService = authServiceFactory();
 
 export default withSession(async (req, res) => {
-  const ERROR_CREDENTIALS = "Invalid email_user and/or password";
+  const ERROR_CREDENTIALS = "Error, correo o contraseña incorrecta!";
 
   const method = req.method.toLowerCase();
   console.log(method);

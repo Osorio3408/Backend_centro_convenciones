@@ -7,6 +7,7 @@ import Footer_login from "../components/Footer_login";
 import Loading from "../components/Loading";
 import "semantic-ui-css/semantic.min.css";
 import Link from "next/link";
+import { toast } from "react-toastify";
 
 const userService = userServiceFactory();
 
@@ -24,7 +25,7 @@ export default function Login() {
     try {
       mutateUser(await userService.login(email_user, password));
     } catch (error) {
-      alert(error.response.data.error);
+      toast.error(error.response.data.error);
     }
   };
 
