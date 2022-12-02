@@ -10,17 +10,17 @@ import Navbareventsadmin from "../components/Navbareventsadmin";
 import ImageSearchAdmin from "../components/ImageSearchAdmin";
 
 const Adminevents = () => {
-  const [images, setImages] = useState([]);
+  const [events, setEvents] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [term, setTerm] = useState("");
-  const URL = `https://pixabay.com/api/?key=31134368-cbf7aafd582ab6e1e41ca089a&q=${term}&image_type=photo&pretty=true`;
+  const URL = `/api/eventos`;
   
 
   useEffect(() => {
     fetch(URL)
       .then((res) => res.json())
       .then((data) => {
-        setImages(data.hits);
+        setEvents(data);
         setIsLoading(false);
       })
       .catch((err) => console.log(err));
@@ -30,7 +30,7 @@ const Adminevents = () => {
       <Navbareventsadmin />
       <div className="container mx-auto">
         <ImageSearchAdmin searchText={(text) => setTerm(text)} />
-        {!isLoading && images.length === 0 && (
+        {!isLoading && events.length === 0 && (
           <h1 className="text-5xl text-center mx-auto mt-32">
             No Images Found
           </h1>
@@ -39,8 +39,8 @@ const Adminevents = () => {
           <Loading />
         ) : (
           <div className="grid justify-center items-center gap-4 md:grid-cols-2 md:ml-20 xl:grid-cols-4 xl:ml-0">
-            {images.map((image) => (
-              <ImageCard key={image.id} image={image} />
+            {events.map((event) => (
+              <ImageCard key={event.id_event} event={event} />
             ))}
           </div>
         )}

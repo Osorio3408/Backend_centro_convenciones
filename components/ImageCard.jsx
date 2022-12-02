@@ -1,32 +1,29 @@
 import React from "react";
 
-const ImageCard = ({ image }) => {
+const ImageCard = ({event}) => {
   return (
     <div className=" max-w-sm rounded overflow-hidden shadow-lg bg-glass">
       <div className="card p-0">
         <img
-          src={image.webformatURL}
-          alt={image.tags}
+          src={event.image_event}
+          alt={"Imagen"}
           className="card-image-top"
+          width="400"
         />
 
         <div className="card-body px-6 py-4 ">
           <div className="card-title font-bold text-red-600 text-xl mb-2">
-            {image.user}
           </div>
           <div className="card-text">
-            <ul>
+            <ul className="flex flex-col items-center">
               <li>
-                <strong>Views: </strong>
-                {image.views}
+                <h3 className="text-slate-100">{event.name_event}</h3>
               </li>
               <li>
-                <strong>Downloads: </strong>
-                {image.downloads}
+                <h3 className="text-slate-100">{event.description_event}</h3>
               </li>
               <li>
-                <strong>Likes: </strong>
-                {image.likes}
+                <h3 className="text-slate-100">{event.createdAt}</h3>
               </li>
             </ul>
           </div>

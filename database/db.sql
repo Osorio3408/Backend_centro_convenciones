@@ -9,7 +9,7 @@ CREATE TABLE Users (
     password_user VARCHAR (250) NOT NULL,
     document_type VARCHAR (250) NOT NULL,
     document_number BIGINT NOT NULL,
-    phone_number_user VARCHAR (250) NOT NULL,
+    phone_number_user VARCHAR (250) NOT NULL,np
     createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 

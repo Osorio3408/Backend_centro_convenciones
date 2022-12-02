@@ -31,22 +31,12 @@ const ImageSearchAdmin = () => {
       const res = await axios.post("/api/eventos", { file, data });
       toast.success("Evento creado exitosamente!");
       route.push("/Adminevents");
+      setShowModal(false)
+      window.location.reload(true);
     } catch (error) {
       toast.error("Error:", error);
     }
-    // try {
-    //   let data = {
-    //     name: name,
-    //     description: description,
-    //   };
-    //   const upload = await axios.post("/api/eventos", ({ data }, file));
-    //   console.log(upload);
-    // } catch (error) {
-    //   // toast.error(
-    //   //   "Error, este correo ya está registrado, por favor ingrese uno nuevo!"
-    //   // );
-    // }
-    console.log("first");
+
   };
 
   const onFileChange = async (e) => {
@@ -69,19 +59,6 @@ const ImageSearchAdmin = () => {
     } catch (error) {
       console.log(error);
     }
-    // if (e.target.file && e.target.file.length > 0) {
-    //   const file = e.target.files[0];
-    //   if (file.type.includes("image")) {
-    //     const reader = new FileReader();
-    //     reader.readAsDataURL(file);
-    //     reader.onload = function load() {
-    //       setPathImage(reader.result);
-    //     };
-    //     setFile(file);
-    //   } else {
-    //     console.log("esta no es una imagen");
-    //   }
-    // }
   };
 
   const onSubmit = (e) => {
@@ -129,7 +106,7 @@ const ImageSearchAdmin = () => {
                     className="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
                     onClick={() => setShowModal(false)}>
                     <span className="bg-transparent text-black opacity-5 h-6 w-6 text-2xl block outline-none focus:outline-none">
-                      ×
+                      <p className="text-red-600">X</p>
                     </span>
                   </button>
                 </div>
