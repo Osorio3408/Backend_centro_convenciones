@@ -22,6 +22,7 @@ const Adminevents = () => {
       .then((data) => {
         setEvents(data);
         setIsLoading(false);
+        console.log(events)
       })
       .catch((err) => console.log(err));
   }, [term]);

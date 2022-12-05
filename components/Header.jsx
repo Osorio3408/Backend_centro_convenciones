@@ -11,9 +11,9 @@ const Header = () => {
     <>
       <Head>
         <title>Inicio</title>
-        <meta property="og:title" content="My page title" key="title" />
+        <meta property="og:title" content="My page title" key="title"  />
       </Head>
-      <header>
+      <header className="w-21">
         <div className="m-0 mb-3 shadow-md w-full sticky top-0 left-0 bg-sky-900">
           <div className=" md:flex items-center justify-between py-4 md:px-10 px-7">
             <div className="justify-center text-xl  font-semibold cursor-pointer flex items-center">
