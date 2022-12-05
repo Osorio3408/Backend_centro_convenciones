@@ -6,7 +6,13 @@ export default async function handler(req, res) {
 
   switch (req.method) {
     case "GET":
-      return res.status(200).json("Recibiendo usuarios");
+      try {
+        const [result] = await pool.query("SELECT * FROM users");
+        console.log(result);
+        return res.status(200).json(result)
+      } catch (error) {
+        return res.status(400).json({message: error.message})
+      }
 
     case "POST":
       try {

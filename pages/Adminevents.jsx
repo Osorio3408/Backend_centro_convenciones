@@ -9,6 +9,7 @@ import Loading from "../components/Loading";
 import Navbareventsadmin from "../components/Navbareventsadmin";
 import ImageSearchAdmin from "../components/ImageSearchAdmin";
 import AddImage from "../components/AddImage";
+import ImageCardAdmin from "../components/ImageCardAdmin";
 
 const Adminevents = () => {
   const [events, setEvents] = useState([]);
@@ -36,8 +37,9 @@ const Adminevents = () => {
         ) : (
           <div className="grid justify-center items-center gap-4 md:grid-cols-2 md:ml-20 xl:grid-cols-4 xl:ml-0">
             {events.map((event) => (
-              <ImageCard key={event.id_event} event={event} />
+              <ImageCardAdmin key={event.id_event} event={event} />
             ))}
+
           </div>
         )}
       </div>

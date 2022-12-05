@@ -9,7 +9,6 @@ const ImageSearchAdmin = () => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [file, setFile] = useState("");
-  const [pathImage, setPathImage] = useState("");
   const [loading_image, setLoading_image] = useState(false);
   const route = Router;
 
@@ -19,15 +18,12 @@ const ImageSearchAdmin = () => {
     return file;
   };
 
-  const resetStates = () => {
-    setName("");
-    setDescription("");
-    setFile("");
-  };
-
   const sendEvent = async (e) => {
     e.preventDefault();
 
+   if(name == "" || description == "" || file == ""){
+    toast.error("Error, ingrese todos los datos necesarios!");
+   }else{
     try {
       let data = {
         name: name,
@@ -41,6 +37,7 @@ const ImageSearchAdmin = () => {
     } catch (error) {
       toast.error("Error:", error);
     }
+   }
   };
 
   const onFileChange = async (e) => {
@@ -57,10 +54,9 @@ const ImageSearchAdmin = () => {
         }
       );
       const files = await res.json();
-      // console.log(res);
       setFile(files.secure_url);
-      console.log(files.secure_url);
-      console.log(file);
+      // console.log(files.secure_url);
+      // console.log(file);
       setLoading_image(true);
     } catch (error) {
       console.log(error);
@@ -120,16 +116,7 @@ const ImageSearchAdmin = () => {
                 <form action="" onSubmit={sendEvent}>
                   <div className="relative p-5 flex-auto text-center ">
                     <div className="flex justify-center items-center mb-1">
-                      {/* <Image
-                        loader={myLoader}
-                        src={image}
-                        alt="Image"
-                        width="150"
-                        height="100"
-                      /> */}
                     </div>
-                    {/* bg-sky-500 hover:bg-sky-900 border-sky-500
-                    hover:border-sky-900 */}
                     {loading_image ? (
                       <div className="flex items-center justify-center mb-3">
                         <Image

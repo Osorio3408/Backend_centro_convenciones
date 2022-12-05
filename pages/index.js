@@ -24,6 +24,7 @@ export default function Home({ user }) {
         setIsLoading(false);
       })
       .catch((err) => console.log(err));
+    
   }, [term]);
   return (
     <>
