@@ -10,9 +10,14 @@ const ImageSearchAdmin = () => {
   const [description, setDescription] = useState("");
   const [file, setFile] = useState("");
   const [pathImage, setPathImage] = useState("");
+  const [loading_image, setLoading_image] = useState(false);
   const route = Router;
 
   const cloud_name = "centroconveciones";
+
+  const myLoader = ({ src }) => {
+    return file;
+  };
 
   const resetStates = () => {
     setName("");
@@ -31,12 +36,11 @@ const ImageSearchAdmin = () => {
       const res = await axios.post("/api/eventos", { file, data });
       toast.success("Evento creado exitosamente!");
       route.push("/Adminevents");
-      setShowModal(false)
+      setShowModal(false);
       window.location.reload(true);
     } catch (error) {
       toast.error("Error:", error);
     }
-
   };
 
   const onFileChange = async (e) => {
@@ -56,6 +60,8 @@ const ImageSearchAdmin = () => {
       // console.log(res);
       setFile(files.secure_url);
       console.log(files.secure_url);
+      console.log(file);
+      setLoading_image(true);
     } catch (error) {
       console.log(error);
     }
@@ -98,8 +104,8 @@ const ImageSearchAdmin = () => {
               {/*content*/}
               <div className="border-0 rounded-lg shadow-lg relative flex flex-col w-full bg-white outline-none focus:outline-none">
                 {/*header*/}
-                <div className="flex items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t">
-                  <h3 className="text-3xl font-semibold">
+                <div className="flex text-center items-start justify-center p-5 border-b border-solid border-slate-200 rounded-t ">
+                  <h3 className="text-center text-4xl">
                     Agregar un Nuevo Evento
                   </h3>
                   <button
@@ -112,8 +118,8 @@ const ImageSearchAdmin = () => {
                 </div>
                 {/*body*/}
                 <form action="" onSubmit={sendEvent}>
-                  <div className="relative p-6 flex-auto text-center ">
-                    <div className="flex justify-center items-center mb-5">
+                  <div className="relative p-5 flex-auto text-center ">
+                    <div className="flex justify-center items-center mb-1">
                       {/* <Image
                         loader={myLoader}
                         src={image}
@@ -124,13 +130,57 @@ const ImageSearchAdmin = () => {
                     </div>
                     {/* bg-sky-500 hover:bg-sky-900 border-sky-500
                     hover:border-sky-900 */}
-                    <input
-                      type="file"
-                      name="description"
-                      id="description"
-                      placeholder="file"
-                      onChange={onFileChange}
-                    />
+                    {loading_image ? (
+                      <div className="flex items-center justify-center mb-3">
+                        <Image
+                          src={file}
+                          width="300"
+                          height="100"
+                          alt="imagen_logo"
+                          loader={myLoader}
+                          className="text-center flex items-center center"
+                        />
+                      </div>
+                    ) : (
+                      <div class="flex items-center justify-center w-full mb-5">
+                        <label
+                          for="dropzone-file"
+                          class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
+                          <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                            <svg
+                              aria-hidden="true"
+                              class="w-10 h-10 mb-3 text-gray-400"
+                              fill="none"
+                              stroke="currentColor"
+                              viewBox="0 0 24 24"
+                              xmlns="http://www.w3.org/2000/svg">
+                              <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+                            </svg>
+                            <p class="mb-2 text-sm text-gray-500 dark:text-gray-400">
+                              <span class="font-semibold">
+                                Click para subir la imgaen
+                              </span>{" "}
+                              o arrastrala y sueltala acá
+                            </p>
+                            <p class="text-xs text-gray-500 dark:text-gray-400 underline">
+                              Por favor espere a que la imagen aparezca para
+                              guardar!
+                            </p>
+                          </div>
+                          <input
+                            id="dropzone-file"
+                            type="file"
+                            name="description"
+                            class="hidden"
+                            onChange={onFileChange}
+                          />
+                        </label>
+                      </div>
+                    )}
                     <label htmlFor="name">Nombre del evento:</label>
                     <input
                       type="text"
@@ -138,10 +188,12 @@ const ImageSearchAdmin = () => {
                       value={name}
                       name="name"
                       onChange={(e) => setName(e.target.value)}
-                      className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mt-5"
+                      className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline mb-5"
                       placeholder="Nombre del evento..."
                     />
-                    <label htmlFor="description">Descripcion del evento:</label>
+                    <label htmlFor="description" className="relative top-3">
+                      Descripcion del evento:
+                    </label>
                     <textarea
                       className="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none mt-5"
                       id="description"
@@ -154,13 +206,16 @@ const ImageSearchAdmin = () => {
                   {/*footer*/}
                   <div className="flex items-center justify-end p-6 border-t border-solid border-slate-200 rounded-b">
                     <button
-                      className="text-red-500 background-transparent font-bold px-6 py-2 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                      className="text-white bg-red-700 rounded active:bg-red-600 hover:bg-red-600 font-bold px-6 py-3 text-sm outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                       type="button"
-                      onClick={() => setShowModal(false)}>
+                      onClick={() => {
+                        setLoading_image(false);
+                        setShowModal(false);
+                      }}>
                       Cancelar
                     </button>
                     <button
-                      className="bg-sky-500 text-white active:bg-sky-800 font-bold text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                      className="bg-sky-700 text-white active:bg-sky-600 hover:bg-sky-600 font-bold text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                       type="button"
                       onClick={sendEvent}>
                       Guardar Evento

@@ -12,10 +12,12 @@ const Navbar_register = () => {
         <nav className="w-100 border-white border-b-2 bg-sky-900 m-0 h-20 xl:h-24">
           <div className="">
             <div className=" items-center justify-between">
-              <h1 className="text-center text-lg pt-2 text-teal-100">
+              <h1 className="text-center text-lg pt-2 text-teal-100 xl:text-3xl">
                 Centro de Convenciones
               </h1>
-              <h2 className="text-center text-lg text-lime-400">Registrarse</h2>
+              <h2 className="text-center text-lg text-lime-400 xl:text-2xl">
+                Registrarse
+              </h2>
             </div>
           </div>
         </nav>

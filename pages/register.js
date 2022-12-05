@@ -21,14 +21,25 @@ const Registrar = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      await axios.post("/api/usuarios", user);
-      toast.success("Usuario Creado Exitosamente");
-      router.push("/home");
-    } catch (error) {
-      toast.error(
-        "Error, este correo ya está registrado, por favor ingrese uno nuevo!"
-      );
+    if (
+      user.nombre_usuario == "" ||
+      user.email_user == "" ||
+      user.tipo_identificacion == "" ||
+      user.numero_identificacion == 0 ||
+      user.telefono_usuario == "" ||
+      user.contraseña_usuario == ""
+    ) {
+      toast.error("Error, ingrese todos los datos necesarios!");
+    } else {
+      try {
+        await axios.post("/api/usuarios", user);
+        toast.success("Usuario Creado Exitosamente");
+        router.push("/home");
+      } catch (error) {
+        toast.error(
+          "Error, este correo ya está registrado, por favor ingrese uno nuevo!"
+        );
+      }
     }
   };
 
@@ -82,7 +93,9 @@ const Registrar = () => {
               name="tipo_identificacion"
               id="tipo_identificacion"
               onChange={handleChange}
-              className="w-64 h-10 mb-4  border-solid border-2 border-black rounded-md placeholder:italic placeholder:text-slate-400">
+              className="w-64 h-10 mb-4  border-solid border-2 border-black rounded-md placeholder:italic placeholder:text-slate-400 hover:rounded-md"
+              required
+              defaultValue={"Tarjeta de Identidad"}>
               <option value="Tarjeta de Identidad">Tarjeta de Identidad</option>
               <option value="Cedula de Ciudadanía">Cédula de Ciudadanía</option>
               <option value="Cedula de Extranjeria">

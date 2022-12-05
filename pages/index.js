@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import ImageSearch from "../components/ImageSearch";
 import ImageCard from "../components/ImageCard";
 import Loading from "../components/Loading";
+import AddImage from "../components/AddImage";
 
 export default function Home({ user }) {
   console.log(user);
@@ -29,11 +30,7 @@ export default function Home({ user }) {
       <Navbar_Events />
       <div className="container mx-auto">
         <ImageSearch searchText={(text) => setTerm(text)} />
-        {!isLoading && events.length === 0 && (
-          <h1 className="text-5xl text-center mx-auto mt-32">
-            No Images Found
-          </h1>
-        )}
+        {!isLoading && events.length === 0 && <AddImage />}
         {isLoading ? (
           <Loading />
         ) : (
