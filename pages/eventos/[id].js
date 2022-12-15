@@ -15,12 +15,12 @@ function Event({ event }) {
 
   const handleDelete = async (id) => {
     await axios.delete("/api/eventos/" + id);
-    toast.success("Eliminado exisotasamente!")
-    route.push('/Adminevents')
+    toast.success("Eliminado exisotasamente!");
+    route.push("/Adminevents");
   };
 
   const myLoader = ({ src }) => {
-    return event.image_event;
+    return event[0].image_event;
   };
 
   return (
@@ -36,20 +36,22 @@ function Event({ event }) {
               <div className="relative p-5 flex-auto text-center ">
                 <div className="flex justify-center items-center mb-1"></div>
                 <Image
-                  src={event.image_event}
+                  src={event[0].image_event}
                   width="500"
-                  alt={event.name_event}
+                  alt={event[0].name_event}
                   height="100"
                   loader={myLoader}
                   className="mb-4"
                 />
                 <label htmlFor="name">Nombre del evento:</label>
-                <h2 className="bg-slate-100 mt-2 py-2">{event.name_event}</h2>
+                <h2 className="bg-slate-100 mt-2 py-2">
+                  {event[0].name_event}
+                </h2>
                 <label htmlFor="description" className="relative top-3">
                   Descripcion del evento:
                 </label>
                 <h2 className="bg-slate-100 mt-4 py-2">
-                  {event.description_event}
+                  {event[0].description_event}
                 </h2>
               </div>
               {/*footer*/}
@@ -64,7 +66,7 @@ function Event({ event }) {
                   className="bg-red-600 text-white active:bg-red-700 hover:bg-red-700 font-bold text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                   type="button"
                   onClick={() => {
-                    handleDelete(event.id_event);
+                    handleDelete(event[0].id_event);
                   }}>
                   Eliminar Evento
                 </button>

@@ -36,9 +36,7 @@ const Registrar = () => {
         toast.success("Usuario Creado Exitosamente");
         router.push("/home");
       } catch (error) {
-        toast.error(
-          "Error, este correo ya está registrado, por favor ingrese uno nuevo!"
-        );
+        toast.error(`Error:${error}`);
       }
     }
   };

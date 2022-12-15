@@ -1,7 +1,7 @@
-const {HOST_DB} = process.env;
-const {USER_DB} = process.env;
-const {PASSWORD_DB} = process.env;
-const {DB} = process.env;
+const { HOST_DB } = process.env;
+const { USER_DB } = process.env;
+const { PASSWORD_DB } = process.env;
+const { DB } = process.env;
 
 const knex = require("knex")({
   client: "mysql2",
@@ -15,15 +15,14 @@ const knex = require("knex")({
 });
 
 const databaseServiceFactory = () => {
+  //Esta constante debería ser una variable de entorno!
   const TABLE = "Users";
 
   const getUser = async (email_user) => {
-    const user = await knex(TABLE)
-      .select()
-      .where("email_user", email_user);
+    const user = await knex(TABLE).select().where("email_user", email_user);
     //User retorna la informacion de la db si hay un correo que exista
     console.log(user);
-    console.log(email_user)
+    console.log(email_user);
     if (user.length === 0) {
       throw new Error("User not found");
     }
