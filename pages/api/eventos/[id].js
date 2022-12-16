@@ -1,6 +1,6 @@
 import { pool } from "../../../config/db";
 
-export default async function handler(req, res) {
+export default async function handleer(req, res) {
   switch (req.method) {
     case "GET":
       return await getEvent(req, res);

@@ -14,9 +14,13 @@ function Event({ event }) {
   };
 
   const handleDelete = async (id) => {
-    await axios.delete("/api/eventos/" + id);
-    toast.success("Eliminado exisotasamente!");
-    route.push("/Adminevents");
+    try {
+      await axios.delete("/api/eventos/" + id);
+      toast.success("Eliminado exisotasamente!");
+      route.push("/Adminevents");
+    } catch (error) {
+      toast.error(`Error:${error}`);
+    }
   };
 
   const myLoader = ({ src }) => {
