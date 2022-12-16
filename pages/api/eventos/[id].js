@@ -19,7 +19,7 @@ const deleteEvent = async (req, res) => {
   try {
     console.log(req.query);
     const { id } = req.query;
-    const [result] = await pool.query(`call eliminar_evento(${[id]})`);
+    const [result] = await pool.query(`call eliminar_evento(${id})`);
     console.log(result);
     return res.status(200).json("Eliminado exisotasamente!");
   } catch (error) {
