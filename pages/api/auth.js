@@ -13,7 +13,7 @@ export default withSession(async (req, res) => {
   const { email_user, password } = req.body;
   console.log(req.body);
 
-  if (method !== "post") {
+  if (method !== "POST") {
     return res.status(405).end(`Method ${req.method} Not Allowed`);
   }
 
@@ -21,8 +21,11 @@ export default withSession(async (req, res) => {
     console.log(dbService);
     const userCredentials = await dbService.getUser(email_user);
     //userCredentials contiene toda la consula usando el .password_user saca la contraseña
-    if (await authService.validate(password, userCredentials.password_user) === true) {
-      console.log({email_user})
+    if (
+      (await authService.validate(password, userCredentials.password_user)) ===
+      true
+    ) {
+      console.log({ email_user });
       await saveSession({ email_user }, req);
       res.status(200).json({ email_user });
       return;
